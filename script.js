@@ -2,6 +2,7 @@ const divs = document.querySelectorAll('div')
 
 function logText(e) {
   console.log(this.classList.value);
+  e.stopPropagation();
 }
 
 divs.forEach(div => div.addEventListener('click', logText, { capture: false }))
@@ -13,3 +14,5 @@ divs.forEach(div => div.addEventListener('click', logText, { capture: false }))
 // false by default
 
 // event bubble starts at the top of the stack or the bottom of the nested elements
+
+// stopPropagation() prevents the events from bubbling up
